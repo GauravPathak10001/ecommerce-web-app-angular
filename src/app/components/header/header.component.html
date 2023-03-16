@@ -1,0 +1,34 @@
+<nav class="nav">
+    <h2><a routerLink="">E-COMM</a></h2>
+    <div *ngIf="menuType==='default'" class="nav-search">
+        <input type="text" (keyup)="searchproducts($event)"  (blur)="hideSearch()" #searchInput placeholder="Search For Products">
+        <button (click)="submitSearch(searchInput.value)" >Search</button>
+        <ul class="suggestedResult" *ngIf="searchResult">
+            <li *ngFor="let item of searchResult">
+               <img class="img-doct" src="{{item.prodcutUrl}}" alt="product">
+                <a (mousedown)="redirectToDetails(item.id)">{{item.productName}}</a>
+            </li>
+        </ul>
+    </div>
+    <div [ngSwitch]="menuType">
+    <ul *ngSwitchCase="'default'" >
+        <li>
+            <a routerLink=''>Home</a>
+        <li>
+            <a routerLink="seller">Seller</a>
+        </li>
+        <li>
+            <a routerLink="user-auth">Login/SignUp</a>
+        </li>
+        <li>
+            <a href="#">Cart(0)</a>
+        </li>
+    </ul>
+    <ul *ngSwitchCase="'seller'">
+        <li><a routerLink="seller-home">Product List</a></li>
+        <li><a routerLink="seller-add-product">Add Product</a></li>
+        <li><a (click)="logout()" >LogOut</a></li>
+        <li style="color:blueviolet;" ><b> Hello,{{sellerName | titlecase}}</b></li>
+    </ul>
+</div>
+</nav>

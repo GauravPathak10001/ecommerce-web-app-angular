@@ -1,0 +1,30 @@
+<head>
+    <script src="https://kit.fontawesome.com/3f59950a3b.js" crossorigin="anonymous"></script>
+</head>
+<div class="add-product">
+<h1>Add New Product</h1>
+<p class="p_message">{{addproductMessage}}</p>
+<form #addproduct="ngForm" class="common-form" (ngSubmit)="submit(addproduct.value)">
+
+<input class="form-input" type="text" name="productName" ngModel placeholder="Enter Product Name">
+
+<input class="form-input" type="text" name="productPrice" ngModel placeholder="Enter Product Price">
+
+<input class="form-input" type="text" name="productCategory" ngModel placeholder="Enter Product Category">
+
+<input type="text" class="form-input" placeholder="Enter product image url" ngModel name="prodcutUrl">
+
+<textarea
+    type="text"
+    class="form-input"
+    placeholder="Enter product Description"
+    name="description"
+    ngModel
+></textarea>
+
+<button class="form-button">Add Product</button>
+
+</form>
+</div>
+
+
